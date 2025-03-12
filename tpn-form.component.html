@@ -1,0 +1,485 @@
+<div class="container mt-4">
+  <header class="d-flex justify-content-between align-items-center mb-4">
+    <img src="assets/logo.png" alt="Hospital Logo" class="hospital-logo">
+    <div class="text-center">
+      <h1 class="hospital-name">SRI BALAJI ACTION MEDICAL INSTITUTE</h1>
+      <h2 class="hospital-address">A - 4, Paschim Vihar, New Delhi - 110063</h2>
+    </div>
+    <img src="assets/nabh.png" alt="Nabh Logo" class="nabh-logo">
+  </header>
+
+  <div class="card p-3 form-container">
+    <form [formGroup]="tpnForm" (ngSubmit)="onSubmit()">
+      <!-- Baby Details Section -->
+      <div class="borderBox mb-4 p-3">
+        <h2 class="section-title mb-3">Baby Details</h2>
+        <div class="row g-3">
+          <div class="col-md-3">
+            <label for="uhid" class="form-label">Baby UHID No</label>
+            <input type="text" id="uhid" class="form-control" formControlName="uhid">
+          </div>
+          <div class="col-md-3">
+            <label for="babyName" class="form-label">Baby Name</label>
+            <input type="text" id="babyName" class="form-control" formControlName="babyName">
+          </div>
+          <div class="col-md-3">
+            <label for="dob" class="form-label">DOB</label>
+            <input type="date" id="dob" class="form-control" formControlName="dob">
+          </div>
+          <div class="col-md-3">
+            <label for="birthTime" class="form-label">Birth Time</label>
+            <input type="time" id="birthTime" class="form-control" formControlName="birthTime">
+          </div>
+          <div class="col-md-3">
+            <label for="age" class="form-label">Age</label>
+            <input type="text" id="age" class="form-control" formControlName="age" readonly>
+          </div>
+          <div class="col-md-3">
+            <label for="gender" class="form-label">Gender</label>
+            <select id="gender" class="form-select" formControlName="gender">
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="others">Others</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Syringe 1 Section -->
+      <div class="borderBox mb-4 p-3">
+        <h2 class="section-title mb-3">Syringe 1</h2>
+        <div class="row g-3">
+          <div class="col-md-4">
+            <label for="lipid" class="form-label">20% Lipid (ml)</label>
+            <input type="number" id="lipid" class="form-control" formControlName="lipid" readonly>
+          </div>
+          <div class="col-md-4">
+            <label for="mvi" class="form-label">MVI (ml)</label>
+            <input type="number" id="mvi" class="form-control" formControlName="mvi" readonly>
+          </div>
+          <div class="col-md-4">
+            <label for="celcel" class="form-label">Celcel (ml)</label>
+            <input type="number" id="celcel" class="form-control" formControlName="celcel" readonly>
+          </div>
+          <div class="col-md-4">
+            <label class="form-label">Syringe 1 Total (ml)</label>
+            <input [value]="tpnForm.value.syringe1Ml | number:'1.0-2'" class="form-control" readonly>
+          </div>
+        </div>
+      </div>
+
+      <!-- Syringe 2 -->
+       <div class="row">
+          <div class="col-lg-6 col-sm-12 col-md-6">
+            <div class="borderBox">
+            <h2 class="section-title">Syringe 2</h2>
+        <div class="row">
+        <div class="col-6 form-group">
+          <label for="aminovenPer">10% Aminoven (per)</label>
+          <input type="number" id="aminovenPer" class="form-control" formControlName="aminovenPer" readonly />
+        </div>
+        <div class="col-6  form-group">
+          <label for="aminoven50ml">10% Aminoven (50 ml)</label>
+          <input type="number" id="aminoven50ml" class="form-control" formControlName="aminoven50ml" readonly />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6  form-group">
+          <label for="naclPer">3% NaCl (per)</label>
+          <input type="number" id="naclPer" class="form-control" formControlName="naclPer" readonly />
+        </div>
+        <div class="col-6  form-group">
+          <label for="nacl50ml">3% NaCl (50 ml)</label>
+          <input type="number" id="nacl50ml" class="form-control" formControlName="nacl50ml" readonly />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6  form-group">
+          <label for="kclPer">15% KCl (per)</label>
+          <input type="number" id="kclPer" class="form-control" formControlName="kclPer" readonly />
+        </div>
+        <div class="col-6  form-group">
+          <label for="kcl50ml">15% KCl (50 ml)</label>
+          <input type="number" id="kcl50ml" class="form-control" formControlName="kcl50ml" readonly />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6  form-group">
+          <label for="calciumPer">10% Calcium (per)</label>
+          <input type="number" id="calciumPer" class="form-control" formControlName="calciumPer" readonly />
+        </div>
+        <div class="col-6  form-group">
+          <label for="calcium50ml">10% Calcium (50 ml)</label>
+          <input type="number" id="calcium50ml" class="form-control" formControlName="calcium50ml" readonly />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-6  form-group">
+          <label for="mgso4Per">50% MgSO4 (per)</label>
+          <input type="number" id="mgso4Per" class="form-control" formControlName="mgso4Per" readonly />
+        </div>
+        <div class="col-6  form-group">
+          <label for="mgso450ml">50% MgSO4 (50 ml)</label>
+          <input type="number" id="mgso450ml" class="form-control" formControlName="mgso450ml" readonly />
+        </div>
+      </div>
+
+      <!-- 5% Dextrose Group -->
+      <div *ngIf="tpnForm.get('dextrose5')?.value === 1" class="dextrose-group">
+        <div class="row">
+          <div class="col-6  form-group">
+            <label for="dextrose5Per">5% Dextrose (per)</label>
+            <input type="number" id="dextrose5Per" class="form-control" formControlName="dextrose5Per" readonly />
+          </div>
+          <div class="col-6  form-group">
+            <label for="dextrose550ml">5% Dextrose (50 ml)</label>
+            <input type="number" id="dextrose550ml" class="form-control" formControlName="dextrose550ml" readonly />
+          </div>
+        </div>
+      </div>
+
+      <!-- 10% Dextrose Group -->
+     
+        <div class="row">
+          <div class="col-6  form-group">
+            <label for="dextrose10Per">{{percentLabel}} Dextrose (per)</label>
+            <input type="number" id="dextrose10Per" class="form-control" formControlName="dextrose10Per" readonly />
+          </div>
+          <div class="col-6  form-group">
+            <label for="dextrose1050ml">{{percentLabel}} Dextrose (50 ml)</label>
+            <input type="number" id="dextrose1050ml" class="form-control" formControlName="dextrose1050ml" readonly />
+          </div>
+        </div>
+      
+      
+        <div class="row">
+          <div class="col-6  form-group">
+            <label for="dextrose25Per"> {{percentLabel2}} Dextrose (per)</label>
+            <input type="number" id="dextrose25Per" class="form-control" 
+                   formControlName="dextrose25Per" readonly />
+          </div>
+          <div class="col-6  form-group">
+            <label for="dextrose2550ml">{{percentLabel2}} Dextrose (50 ml)</label>
+            <input type="number" id="dextrose2550ml" class="form-control" 
+                   formControlName="dextrose2550ml" readonly />
+          </div>
+        </div>
+      
+
+            </div>
+          </div>
+          <!-- Total Part -->
+          <div class="col-lg-6 col-sm-12 col-md-6">
+            <div class="borderBox">
+            <h2 class="section-title">Total</h2>
+
+              <!-- <h2 class="section-title">Total</h2> -->
+                <div class="row">
+                  <div class="col-6 form-group">
+                    <label for="totalVolume">Total Volume (ml)</label>
+                    <input type="number" id="totalVolume" 
+                          [value]="tpnForm.value.totalVolume | number:'1.0-2'"
+                          class="form-control" readonly>
+                  </div>
+                  <div class="col-6 form-group">
+                    <label for="totalPer50">Total Per 50 ml</label>
+                    <input type="number" id="totalPer50" 
+                          [value]="tpnForm.value.totalPer50 | number:'1.0-2'"
+                          class="form-control" readonly>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-6 form-group">
+                    <label for="potPhos">PotPhos (PO4)</label>
+                    <input type="number" id="potPhos" class="form-control" formControlName="potPhos" readonly />
+                  </div>
+
+                  <div class="col-6 form-group">
+                    <label for="calcium10">Total 10% Calcium</label>
+                    <input type="number" id="calcium10" class="form-control" formControlName="calcium10" readonly />
+                  </div>
+                </div>
+ 
+          </div>
+          </div>
+
+       
+       </div>
+
+
+
+       <div class="row mt-4">
+        <!-- Dosing & Fluid Details -->
+        <div class="col-lg-6 col-sm-12 col-md-6">
+          <div class="borderBox">
+
+          <h2 class="section-title">Dosing & Fluid Details</h2>
+
+          
+     
+      <div class="row">
+        <div class="col-md-4 form-group">
+          <label for="dosingWeight">Dosing wt (kg)</label>
+          <input type="number" id="dosingWeight" class="form-control" formControlName="dosingWeight" />
+        </div>
+        <div class="col-md-4 form-group">
+          <label for="tfr">TFR (ml/kg)</label>
+          <input type="number" id="tfr" class="form-control" 
+                 formControlName="tfr" step="1" min="0">
+        </div>
+        <div class="col-md-4 form-group">
+          <label for="feed">Feed (ml/kg)</label>
+          <input type="number" id="feed" class="form-control" formControlName="feed" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 form-group">
+          <label for="ivm">IVM (ml)</label>
+          <input type="number" id="ivm" class="form-control" formControlName="ivm" />
+        </div>
+        <div class="col-md-4 form-group">
+          <label for="a">A (g/kg/day)</label>
+          <input type="number" id="a" class="form-control" formControlName="a" />
+        </div>
+        <div class="col-md-4 form-group">
+          <label for="l">L (g/kg/day)</label>
+          <input type="number" id="l" class="form-control" formControlName="l" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 form-group">
+          <label for="g">G (mg/kg/min)</label>
+          <input type="number" id="g" class="form-control" formControlName="g" />
+        </div>
+        <div class="col-md-4 form-group">
+          <label for="na">Na (mEq/kg/d)</label>
+          <input type="number" id="na" class="form-control" formControlName="na" />
+        </div>
+        <div class="col-md-4 form-group">
+          <label for="k">K (mEq/kg/d)</label>
+          <input type="number" id="k" class="form-control" formControlName="k" />
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 form-group">
+          <label for="ca">Ca (mg/kg/d)</label>
+          <input type="number" id="ca" class="form-control" formControlName="ca" />
+        </div>
+        <div class="col-md-4 form-group">
+          <label for="mg">Mg (mEq/kg/d)</label>
+          <input type="number" id="mg" class="form-control" formControlName="mg" />
+        </div>
+        <div class="col-md-4 form-group">
+          <label for="dextrose5">5% Dextrose</label>
+          <select (change)="togglequantity()" id="dextrose5" class="form-control" formControlName="dextrose5">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4 form-group">
+          <label for="dextrose10">10% Dextrose</label>
+          <input  (change)="togglequantity()" type="number" id="dextrose10" class="form-control" formControlName="dextrose10" />
+        </div>
+        <div class="col-md-4 form-group">
+          <label for="dextrose25">25% Dextrose</label>
+          <select (change)="togglequantity2()" id="dextrose25" class="form-control" formControlName="dextrose25">
+            <option value="0">0</option>
+            <option value="1">1</option>
+          </select>
+        </div>
+        <div class="col-md-4 form-group">
+          <label for="dextrose50">50% Dextrose</label>
+          <input (change)="togglequantity2()" type="number" id="dextrose50" class="form-control" formControlName="dextrose50" />
+        </div>
+      </div>
+</div>
+        </div>
+
+          <div class="col-lg-6 col-sm-12 col-md-6">
+            <div class="borderBox">
+              <!-- IVM Volume Details -->
+              <h2 class="section-title">IVM Volume Details</h2> 
+              <div class="row">
+                <div class="col-md-4 form-group">
+                  <label for="n5">N/5 (mL)</label>
+                  <input type="number" id="n5" class="form-control" formControlName="n5" />
+                </div>
+                <div class="col-md-4 form-group">
+                  <label for="n2">N/2 (mL)</label>
+                  <input type="number" id="n2" class="form-control" formControlName="n2" />
+                </div>
+                <div class="col-md-4 form-group">
+                  <label for="ns">NS (mL)</label>
+                  <input type="number" id="ns" class="form-control" formControlName="ns" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4 form-group">
+                  <label for="dex10">10% Dex (mL)</label>
+                  <input type="number" id="dex10" class="form-control" formControlName="dex10" />
+                </div>
+                <div class="col-md-4 form-group">
+                  <label for="typeOfOralFeed">Type of oral feed</label>
+                  <select id="typeOfOralFeed" class="form-control" formControlName="typeOfOralFeed">
+                    <option value="NPO">NPO</option>
+                    <option value="EBM/PDHM">EBM/PDHM</option>
+                    <option value="Formula">Formula</option>
+                  </select>
+                </div>
+                <div class="col-md-4 form-group">
+                  <label for="preNanStrength">PreNan Strength</label>
+                  <select id="preNanStrength" class="form-control" formControlName="preNanStrength">
+                    <option value="None">None</option>
+                    <option value="Quarter">Quarter</option>
+                    <option value="Half">Half</option>
+                    <option value="Full">Full</option>
+                  </select>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4 form-group">
+                  <label for="po4">PO4 (mg/kg/d)</label>
+                  <input type="number" id="po4" class="form-control" formControlName="po4" />
+                </div>
+                <div class="col-md-4 form-group">
+                  <label for="calciumViaTPN">Calcium via TPN</label>
+                  <input type="number" id="calciumViaTPN" class="form-control" formControlName="calciumViaTPN" />
+                </div>
+                <div class="col-md-4 form-group">
+                  <label for="overfillFactor">Overfill factor</label>
+                  <input type="number" id="overfillFactor" class="form-control" formControlName="overfillFactor" />
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4 form-group">
+                  <label for="sodiumSource">Sodium source</label>
+                  <select id="sodiumSource" class="form-control" formControlName="sodiumSource">
+                    <option value="3% NaCl">3% NaCl</option>
+                    <option value="CRL">Conc. RL</option>
+                  </select>
+                </div>
+                <div class="col-md-4 form-group">
+                  <label for="celcelInput" class="form-label">Celcel</label>
+                  <input type="number" id="celcelInput" class="form-control" 
+                         formControlName="celcel"
+                         [class.is-invalid]="tpnForm.get('celcel')?.invalid && tpnForm.get('celcel')?.touched">
+                </div>
+                <div *ngIf="tpnForm.get('ivmError')?.value" class="alert alert-danger">
+                  {{ tpnForm.get('ivmError')?.value }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+       </div>
+
+
+
+ 
+
+       <div class="borderBox mt-4">
+      <!-- Nutritional Requirements -->
+      <h2 class="section-title">Nutritional Requirements</h2>
+      <div class="row">
+       
+        <div class="col-3 form-group">
+          <label for="nutritionTfr">TFR (ml/kg)</label>
+          <input type="number" id="nutritionTfr" class="form-control" 
+                 [formControl]="nutritionTfr" readonly>
+        </div>
+        <div class="col-3 form-group">
+          <label for="tfv">TFV (ml)</label>
+          <input type="number" id="tfv" class="form-control" formControlName="tfv" readonly />
+        </div>
+        <div class="col-3 form-group">
+          <label for="feeds">Feeds (ml)</label>
+          <input type="number" id="feeds" class="form-control" formControlName="feeds" readonly />
+        </div>
+        <div class="col-3 form-group">
+          <label for="ivfMlKg">IVF (ml/kg)</label>
+          <input type="number" id="ivfMlKg" class="form-control" formControlName="ivfMlKg" readonly />
+        </div>
+      </div>
+      <div class="row">
+       
+        <div class="col-3 form-group">
+          <label for="ivfMl">IVF (ml)</label>
+          <input type="number" id="ivfMl" class="form-control" formControlName="ivfMl" readonly />
+        </div>
+        <div class="col-3 form-group">
+          <label for="tpnFluid">TPN fluid (ml)</label>
+          <input type="number" id="tpnFluid" class="form-control" formControlName="tpnFluid" readonly />
+        </div>
+
+        <div class="col-3 form-group">
+          <label for="tpnGlucose">TPN Glucose (g)</label>
+          <input type="number" id="tpnGlucose" class="form-control" formControlName="tpnGlucose" readonly />
+        </div>
+        <div class="col-3 form-group">
+          <label for="fluidForGlucose">Fluid for Glucose</label>
+          <input type="number" id="fluidForGlucose" class="form-control" formControlName="fluidForGlucose" readonly />
+        </div>
+
+      </div>
+     
+      
+      
+      
+      <div class="row">
+        <div class="col-3 form-group">
+          <label for="osmolarity">Osmolarity (Sy1 + Sy2)</label>
+          <input type="number" id="osmolarity" class="form-control" formControlName="osmolarity" readonly />
+        </div>
+        
+        <div class="col-3 form-group">
+          <label for="dextrosePercentage">Dextrose %</label>
+          <input type="number" id="dextrosePercentage" class="form-control" formControlName="dextrosePercentage" readonly />
+        </div>
+        <div class="col-3 form-group">
+          <label for="cnr">CNR</label>
+          <input type="number" id="cnr" class="form-control" formControlName="cnr" readonly />
+        </div>
+        <div class="col-3 form-group">
+          <label for="caloriesToday">Calories for today</label>
+          <input type="number" id="caloriesToday" class="form-control" formControlName="caloriesToday" readonly />
+        </div>
+      </div>
+
+
+      <div class="row">
+        <div class="col-3 form-group">
+          <label for="proteinsToday">Proteins for today</label>
+          <input type="number" id="proteinsToday" class="form-control" formControlName="proteinsToday" readonly />
+        </div>
+        <div class="col-3 form-group">
+          <label for="naInIvm">Na in IVM (mEq/kg/d)</label>
+          <input type="number" id="naInIvm" class="form-control" formControlName="naInIvm" readonly />
+        </div>
+        <div class="col-3 form-group">
+          <label for="glucoseInIvm">Glucose in IVM (g)</label>
+          <input type="number" id="glucoseInIvm" class="form-control" formControlName="glucoseInIvm" readonly />
+        </div>
+        <div class="col-3 form-group">
+          <label for="kInPotphos">K in Potphos (mEq/kg/d)</label>
+          <input type="number" id="kInPotphos" class="form-control" formControlName="kInPotphos" readonly />
+        </div>
+      </div> 
+      </div>
+      
+      <div *ngIf="isCalculating" class="calculation-status">
+        <i class="fas fa-spinner fa-spin"></i> Calculating...
+      </div>
+      <!-- Submit and Clear Buttons -->
+      <div class="button-container">
+        <button type="submit" class="btn btn-primary me-3">Calculate & Save</button>
+        <button type="button" class="btn btn-danger" (click)="clearData()">Clear Saved Data</button>
+      </div>
+    </form>
+
+    <!-- Saved Data Display -->
+    <h3 class="section-title">Saved Data:</h3>
+    <pre>{{ savedData | json }}</pre>
+  </div>
+</div>
